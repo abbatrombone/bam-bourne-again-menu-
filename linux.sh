@@ -94,7 +94,6 @@
  };
  TERMINALKEYBOARDSHORTCUTS(){
 	echo "Ctrl+C kills active process"
-	echo "Ctrl+D exits the shell"
 	echo "Ctrl+L clears the screen"
 	echo "Ctrl+A front of line"
 	echo "Ctrl+E end of line"

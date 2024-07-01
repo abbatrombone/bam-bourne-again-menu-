@@ -49,10 +49,10 @@ function Main_Menu() {
         read -s -n3 key && stty -echo # wait for user to key in arrows or ENTER
         if [[ $key == $esc[A ]] # up arrow
         then cur=$(( $cur - 1 ))
-            [ "$cur" -lt 0 ] && cur=0
+            [ "$cur" -lt 0 ] && cur=$(( $count - 1 ))
         elif [[ $key == $esc[B ]] # down arrow
         then cur=$(( $cur + 1 ))
-            [ "$cur" -ge $count ] && cur=$(( $count - 1 ))
+            [ "$cur" -ge $count ] && cur=0
         elif [[ $key == "" ]] # nothing, i.e the read delimiter - ENTER
         then break
         fi
