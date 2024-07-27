@@ -22,7 +22,11 @@ function choose_from_menu() {
     local prompt="${UNMARK}$1${RESET}" outvar="$2"
     shift
     shift
-    local options=("$@") cur=0 count=${#options[@]}  index=0
+    local options=("$@") 
+    if [ -z "${cur}" ]; then cur=0
+    fi
+    count=${#options[@]}  
+    index=0
     local esc=$(echo -en "\e") # cache ESC as test doesn't allow esc codes
     tput cup 1 $Middle; printf "$prompt\n";
     while true
@@ -115,7 +119,7 @@ case $selected_choice in
     if [[ "${selections[3]}" == "[X] 4" ]];
     then printvar+=("${selections[3]}")
     fi
-    echo "${printvar[@]}"
+    echo "you chose: ${printvar[@]}"
     ;;
 esac
 done
