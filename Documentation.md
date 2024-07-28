@@ -96,6 +96,17 @@ Animations can also be used and several examples are in the `Bash_Animation` fol
 
 Sounds can be used if the `mpv` library is used. The use-case is niche at best for this, and is only there to show how it could be used. The main goal of this is to rely on little as needed for a positive user experience in this case bash. Best of luck on your endeavors creating menus. If anything is wrong in this guide or confusing please let me know so it can be updated!
 
+## Check boxes
+* Radio buttons tend to be round so to make it clear to the user this is a check box i used a square which usually how check boxes are displayed.
+* To maintain the current location of the cursor without resetting it to the beginning the following logic is used: 
+```
+if [ -z "${cur}" ]; then cur=0
+fi
+```
+This simply means if cur is empty, does not have a value, make it 0. If this was not there the cursor would return to the top every time a user hit enter.
+
+* Currently the template does not do anything but is there to show you how the code would look should you need it.
+
 # Credits
 * `oTo` for the static menu design: https://web.archive.org/web/20180130222805/http://pro-toolz.net/data/programming/bash/Bash_fancy_menu.html
 * `Guss` forstatic menu desgin: https://askubuntu.com/users/6537/guss

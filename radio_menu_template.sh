@@ -2,7 +2,7 @@
 
 
 gsettings set org.gnome.desktop.peripherals.keyboard repeat true;
-trap "bash ~/Basg_Files/Checkbox_menu_template.sh" WINCH
+trap "bash ~/checkboxmenu2.sh" WINCH
 echo -en "\ec\e[37;44m\e[J"
 
 
@@ -14,7 +14,7 @@ RESET='\e[27m'
 UNMARK='\e[7m'
 
 
-selections=( "[ ] 1" "[ ] 2" "[ ] 3" "[ ] 4" "done" )
+selections=( "( ) 1" "( ) 2" "( ) 3" "( ) 4" "done" )
 printvar=()
 
 function choose_from_menu() {
@@ -22,8 +22,8 @@ function choose_from_menu() {
     local prompt="${UNMARK}$1${RESET}" outvar="$2"
     shift
     shift
-    local options=("$@") 
-    if [ -z "${cur}" ]; then cur=0
+    local options=("$@")
+ if [ -z "${cur}" ]; then cur=0
     fi
     count=${#options[@]}  
     index=0
@@ -82,44 +82,44 @@ choose_from_menu "Please make a choice:" selected_choice "${selections[@]}";
 
 case $selected_choice in
 
-    "[ ] 1")
-    selections[0]="[X] 1"
+    "( ) 1")
+    selections[0]="(X) 1"
+    selections[1]="( ) 2"
+    selections[2]="( ) 3"
+    selections[3]="( ) 4"
     ;;
-    "[ ] 2")
-    selections[1]="[X] 2"
+    "( ) 2")
+    selections[0]="( ) 1"
+    selections[1]="(X) 2"
+    selections[2]="( ) 3"
+    selections[3]="( ) 4"
     ;;
-    "[ ] 3")
-    selections[2]="[X] 3"
+    "( ) 3")
+    selections[0]="( ) 1"
+    selections[1]="( ) 2"
+    selections[2]="(X) 3"
+    selections[3]="( ) 4"
     ;;
-    "[ ] 4")
-    selections[3]="[X] 4"
-    ;;
-    "[X] 1")
-    selections[0]="[ ] 1"
-    ;;
-    "[X] 2")
-    selections[1]="[ ] 2"
-    ;;
-    "[X] 3")
-    selections[2]="[ ] 3"
-    ;;
-    "[X] 4")
-    selections[3]="[ ] 4"
-    ;;
+    "( ) 4")
+    selections[0]="( ) 1"
+    selections[1]="( ) 2"
+    selections[2]="( ) 3"
+    selections[3]="(X) 4"
+    ;;   
     "done")
-    if [[ "${selections[0]}" == "[X] 1" ]];
+    if [[ "${selections[0]}" == "(X) 1" ]];
     then printvar+=("${selections[0]}")
     fi
-    if [[ "${selections[1]}" == "[X] 2" ]];
+    if [[ "${selections[1]}" == "(X) 2" ]];
     then printvar+=("${selections[1]}")
     fi
-    if [[ "${selections[2]}" == "[X] 3" ]];
+    if [[ "${selections[2]}" == "(X) 3" ]];
     then printvar+=("${selections[2]}")
     fi
-    if [[ "${selections[3]}" == "[X] 4" ]];
+    if [[ "${selections[3]}" == "(X) 4" ]];
     then printvar+=("${selections[3]}")
     fi
-    echo "you chose: ${printvar[@]}"
+    echo "You chose: ${printvar[@]}"
     ;;
 esac
 done
