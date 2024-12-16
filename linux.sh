@@ -99,13 +99,15 @@
 	echo "Ctrl+E end of line"
 	echo "Alt+F  go forward one word"
 	echo "Alt+B go back one word"
-	echo "Ctrl+F/ Ctrl+B for one charter rather than a word"
+	echo "Ctrl+F/Ctrl+B for one charter rather than a word"
 	echo "Ctrl+K deletes everything past your cusor (inculdes whats being highlighted)"
 	echo "Ctrl+U deletes everything before your cursor"
 	echo "Ctrl+X and then Ctrl+E brings your current command into your editor. Saving it will update it in your shell"
 	echo "!! runs last command"
 	echo "Ctrl+Z puts process in the background (use fg command to bring it back to forground)"
-	echo "Ctrl+D exits the shell"
+	echo "Ctrl+D tells the terminal that it should register a EOF on standard input, which bash interprets as a desire to exit. (exits the shell)"
+	echo "Ctrl+P recall the previous command in the command history."
+	echo "Ctrl+R Preforms a reverse search through your command histroy. Press enter to execute that command"
  }
  
  
