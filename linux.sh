@@ -58,7 +58,7 @@
 # This can be used for Gnome users to prevent holding down keys 
 
  ESC=$( $e "\e") # variable containing escaped value
- EXIT(){ stty sane echo && gsettings set org.gnome.desktop.peripherals.keyboard repeat true && pgrep -f "mpv --loop=inf /home/trazodone/Bash_Files/Bash_Sounds/MenuLoop.wav --no-terminal" | xargs kill && exit 0; }; #Custom
+ EXIT(){ stty sane echo && gsettings set org.gnome.desktop.peripherals.keyboard repeat true && pgrep -f "mpv --loop=inf ~/Bash_Files/Bash_Sounds/MenuLoop.wav --no-terminal" | xargs kill && exit 0; }; #Custom
    TPUT(){ $e "\e[${1};${2}H";} # terminal put (x and y position)
   CLEAR(){ $e "\ec";} # clear screen
   CIVIS(){ $e "\e[?25l";} # hide cursor
